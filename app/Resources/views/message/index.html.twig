@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2 class="text-center">Messages</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Message</th>
+            <th>Author</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <th scope="row"><a href="{{ path('message_view', {'message_id': message.id}) }}">{{ message.id }}</a></th>
+                <td>{{ message.message }}</td>
+                <td>{{ message.author.username }}</td>
+                <td>
+                    <a href="{{ path('message_delete', {'message_id': message.id}) }}"><i class="fa fa-trash"></i></a>
+                    <a data-href="{{ path('message_edit', {'message_id': message.id}) }}"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="4" style="text-align: center">
+                <a data-href="{{ path('message_create') }}"><i class="fa fa-plus"></i> Add Message</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

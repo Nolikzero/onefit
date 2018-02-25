@@ -1,0 +1,10 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+
+{% block fos_user_content %}
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
+    {{ render(controller(
+    'HWI\\Bundle\\OAuthBundle\\Controller\\ConnectController::connectAction',
+    {'request': app.request}
+    )) }}
+{% endblock fos_user_content %}

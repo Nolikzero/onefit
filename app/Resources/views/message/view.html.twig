@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2 class="text-center">Message #{{ message.id }}</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Message</th>
+            <th>Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{{ message.id }}</th>
+            <td>
+                {{ message.message }}
+            </td>
+            <td>
+                {{ message.author.username }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
