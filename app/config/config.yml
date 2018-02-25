@@ -44,7 +44,7 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_pgsql
+        driver: '%database_driver%'
         host: '%database_host%'
         port: '%database_port%'
         dbname: '%database_name%'
@@ -96,8 +96,8 @@ hwi_oauth:
     resource_owners:
         facebook:
             type: facebook
-            client_id: 537159916670072
-            client_secret: c0c74cd2f90ffb74b686e25a1bf3ac02
+            client_id: "%facebook_client_id%"
+            client_secret: "%facebook_client_secret%"
             scope: "email"
 
 assetic:

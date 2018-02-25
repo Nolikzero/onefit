@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_pgsql
+    database_host: 127.0.0.1
+    database_port: 5432
+    database_name: onefit
+    database_user: onefit
+    database_password: onefit
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: test@test.loc
+    mailer_password: null
+    facebook_client_id: 537159916670072
+    facebook_client_secret: c0c74cd2f90ffb74b686e25a1bf3ac02
+    secret: ThisTokenIsNotSoSecretChangeIt
+
