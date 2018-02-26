@@ -82,6 +82,7 @@ layout:
     logged_in_as: 'Logged in as %username%'
     edit: 'Edit'
     chat: 'Chat'
+    friends: 'Friends'
 
 form:
     group_name: 'Group name'

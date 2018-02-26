@@ -24,6 +24,13 @@ class User extends BaseUser
      */
     protected $facebookID;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $friends = array();
+
     public function __construct()
     {
         parent::__construct();
@@ -52,5 +59,29 @@ class User extends BaseUser
     public function getFacebookID()
     {
         return $this->facebookID;
+    }
+
+    /**
+     * Set friends
+     *
+     * @param array $friends
+     *
+     * @return User
+     */
+    public function setFriends($friends)
+    {
+        $this->friends = $friends;
+
+        return $this;
+    }
+
+    /**
+     * Get friends
+     *
+     * @return array
+     */
+    public function getFriends()
+    {
+        return $this->friends;
     }
 }

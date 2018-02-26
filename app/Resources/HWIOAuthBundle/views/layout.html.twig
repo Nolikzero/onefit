@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-    </head>
-    <body>
-        <div>
-            {% block hwi_oauth_content %}
-            {% endblock hwi_oauth_content %}
-        </div>
-    </body>
-</html>
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <div>
+        {% block hwi_oauth_content %}
+        {% endblock hwi_oauth_content %}
+    </div>
+
+
+{% endblock body %}
+
+

@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2 class="text-center">Friends</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Picture</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for friend in friends %}
+            <tr>
+                <td>{{ friend.name }}</td>
+                <td>
+                    {% if friend.picture.data.url is defined %}
+                        <img src="{{ friend.picture.data.url }}"/>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

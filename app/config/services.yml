@@ -34,6 +34,25 @@ services:
         tags:
             - { name: form.type, alias: app_user_registration }
 
+    app.userprovider:
+        class: AppBundle\Security\Core\FOSConnectUserProvider
+        arguments: ["@fos_user.user_manager", {facebook: facebookID} ]
+        calls:
+            - [setContainer, ["@service_container"]]
+            - [setFacebookApi, ["@app.facebookapi"]]
+
+    app.facebookapi:
+        class: AppBundle\Service\Facebook\FacebookApi
+        arguments: [%facebook_client_id%, %facebook_client_secret%]
+
+    app.registration.form.handler:
+        class: AppBundle\Form\FOSUBRegistrationFormHandler
+        arguments: ["@fos_user.user_manager", "@fos_user.mailer", "@fos_user.util.token_generator"]
+        calls:
+            - [setFormHandler, ["@?fos_user.registration.form.handler"]]
+            - [setFacebookApi, ["@app.facebookapi"]]
+
+
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:
